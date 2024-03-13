@@ -85,7 +85,7 @@ def play_next_music(ctx,voice_client,error=None):
     voice_client.play(source, after=lambda e: play_next_music(ctx,voice_client,e))
 
 def search_youtube(query):
-    youtube = build('youtube', 'v3', developerKey='AIzaSyBj0bWtxZZVd7ThjJhHytwM-tNGo6-ocMM')
+    youtube = build('youtube', 'v3', developerKey=os.environ["API_TOKEN"])
     request = youtube.search().list(
         part='snippet',
         maxResults=1,
